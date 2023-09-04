@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-lg-4 mx-auto p-4 py-md-5">
+    <h1>Example form</h1>
+   
+    <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="form">
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="name" class="form-control">
+            <error-component [control]="exampleForm.controls.name"></error-component>
+                   <!-- [ngClass]="{ 'is-invalid': form.submitted && controls.name.invalid }"> -->
+            <!-- <div *ngIf="form.submitted && controls.name.invalid" class="text-danger"> -->
+              <!-- <small *ngIf="controls.name.errors?.required">Name is required.</small> -->
+            <!-- </div> -->
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" class="form-control">
+            <error-component [control]="exampleForm.controls.email"></error-component>
+                   <!-- [ngClass]="{ 'is-invalid': form.submitted && controls.email.invalid }"> -->
+            <!-- <div *ngIf="form.submitted && controls.email.invalid" class="text-danger"> -->
+              <!-- <small *ngIf="controls.email.errors?.required">Email is required.</small>
+              <small *ngIf="controls.email.errors?.email">Email is invalid.</small> -->
+            <!-- </div> -->
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input id="age" type="number" formControlName="age" class="form-control">
+            <error-component [control]="exampleForm.controls.age"></error-component>
+                   <!-- [ngClass]="{ 'is-invalid': form.submitted && controls.password.invalid }"> -->
+            <!-- <div *ngIf="form.submitted && controls.password.invalid" class="text-danger">
+              <small *ngIf="controls.password.errors?.required">Password is required.</small>
+            </div> -->
+          </div>
+          <div class="form-group">
+            <label>Operating System</label>
+            <select id="operatingSystem" formControlName="operatingSystem" class="form-control">
+              <option value="">Select an operating system</option>
+              <option *ngFor="let operatingSystem of operatingSystems" [value]="operatingSystem">{{ operatingSystem }}</option>
+            </select>
+            <error-component [control]="exampleForm.controls.operatingSystem"></error-component>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
